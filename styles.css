@@ -16,14 +16,14 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-input, select, textarea, button {
-    margin: 10px 0;
-    padding: 8px;
-    width: 100%; /* Cambia esto de 90% a 100% */
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    box-sizing: border-box; /* Esto asegura que el padding no afecte el tamaño total */
+input, select, textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    width: 100%;  /* Cambiado de 90% a 100% */
+    box-sizing: border-box;  /* Esto asegura que los elementos respeten el ancho establecido */
+    margin-bottom: 10px;
 }
 
 
