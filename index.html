@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Cumpleaños</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #FDFDFD, #F0F0F0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            width: 95%;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 15px;
+            margin: 0 auto;
+        }
+        button#showMessage, button.submit-btn {
+            background-color: #FF4081;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+        }
+        button#showMessage:hover, button.submit-btn:hover {
+            background-color: #F50057;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .song-list {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+        textarea, input, select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<h1 style="display: flex; justify-content: center; align-items: center; text-align: center; color: #000000; margin-bottom: 15px; font-family: 'Poppins', sans-serif;">
+    ¡Estás Invitado a la Fiesta de Cumpleaños de LUIS X! &nbsp;🎂🎉
+</h1>
+
+        <img src="pinguino.png" alt="Pingüino Cumpleaños" class="image">
+        <button id="showMessage">📋 Mostrar Información Importante</button>
+    
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <p>🧿 Hola, si estás viendo esto es porque eres muy importante para mí, y quiero que festejemos mi cumpleaños juntos. 🥳❤️</p>
+                <p>📍 Dirección: <a href="https://g.co/kgs/mKGLZrW" target="_blank">Av del Pavo Real 40, Las Alamedas, 52970 Cdad. López Mateos, Méx.</a></p>
+                <p>🕒 Hora: 16:00</p>
+                <p>🎤 Será una comida súper chimba con karaoke incluido para que cantemos rolas chidas! (incluyendo LUIS X). 🎤🎶</p>
+                <p>🍽️ Va a haber comida, micheladas, bebidas elegantes y divertidas, pero siéntete libre de traer lo que gustes. 👻</p>
+                <p>🎵 Al final de la página podrás sugerir canciones que quieras para el karaoke. Siéntete libre de añadir las que quieras (menos Morat)</p>
+                <button id="closeModal">Cerrar</button>
+            </div>
+        </div>
+
+        <form id="rsvp-form" class="form-grid">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <textarea name="recuerdo" placeholder="📜 Deja un recuerdo, anécdota o mensaje divertido"></textarea>
+            <input type="text" name="lleva" placeholder="🍲 Si quieres traer algo pon aquí qué para considerarlo, gracias 😀">
+            <select name="asistencia" required>
+                <option value="" disabled selected>¿Vas a asistir?</option>
+                <option value="Sí">Sí</option>
+                <option value="Quizás">Quizás</option>
+                <option value="No">No</option>
+            </select>
+            <select name="acompanantes" required>
+                <option value="" disabled selected>¿Cuántos acompañantes llevarás?</option>
+                <option value="0">Ninguno</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+
+            <div id="song-list" class="song-list"></div>
+            <button type="button" id="addSong" class="add-song">🎵 Sugerir Canción para Karaoke</button>
+
+            <button type="submit" class="submit-btn">Completar Registro ✍️</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
